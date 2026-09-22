@@ -68,7 +68,7 @@ export default async function HomePage() {
 
       <section id="pairings" className="mx-auto max-w-7xl px-6 py-20 sm:px-8">
         <div className="grid gap-8 lg:grid-cols-[.65fr_1.35fr]">
-          <div className="lg:pr-10"><h2 className="font-display text-5xl">Put It On<br/>Everything</h2><div className="mt-6 h-[2px] w-7 bg-brand"/><p className="mt-5 max-w-xs text-sm leading-6 text-foreground/65">From morning eggs to late-night noodles, San San turns everyday meals into something more.</p></div>
+          <div className="lg:pr-10"><h2 className="font-display text-5xl">Everyday Food,<br/>Elevated.</h2><div className="mt-6 h-[2px] w-7 bg-brand"/><p className="mt-5 max-w-xs text-sm leading-6 text-foreground/65">From morning eggs to weekend dinners, San San brings depth, warmth, and character to the food you already love.</p></div>
           <div className="grid grid-cols-2 gap-1 sm:grid-cols-4">{pairings.map(([name,note])=><article key={name} className="flex aspect-[3/4] flex-col justify-end bg-[#26150f] p-5 text-[#f6f0e6]"><div className="mb-auto font-display text-5xl text-brand/70">三</div><h3 className="font-display text-xl">{name}</h3><p className="mt-2 text-xs leading-5 text-white/45">{note}</p></article>)}</div>
         </div>
       </section>
