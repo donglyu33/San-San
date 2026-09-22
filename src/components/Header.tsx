@@ -5,37 +5,22 @@ import { useCart } from "@/context/CartContext";
 
 export function Header() {
   const { itemCount } = useCart();
-
   return (
-    <header className="sticky top-0 z-10 border-b border-brand-light bg-background/95 backdrop-blur">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-5">
-        <Link href="/" className="flex items-center gap-3 leading-tight">
-          {/* eslint-disable-next-line @next/next/no-img-element -- local asset, small logo mark */}
-          <img src="/logo-fire-chill.jpeg" alt="" className="h-12 w-12 object-contain" />
-          <span className="flex flex-col">
-            <span className="font-display text-xl text-foreground">San San</span>
-            <span className="text-[10px] uppercase tracking-[0.2em] text-foreground/40">
-              seasonal &middot; handcrafted &middot; delivered
-            </span>
+    <header className="sticky top-0 z-20 border-b border-black/10 bg-[#f3eee5]/95 backdrop-blur-md">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
+        <Link href="/" className="flex items-center gap-3">
+          <span className="flex h-9 w-7 items-center justify-center border border-brand text-lg font-display text-brand">三</span>
+          <span>
+            <span className="block font-display text-lg tracking-[.28em]">SAN SAN</span>
+            <span className="block text-[8px] uppercase tracking-[.3em] text-foreground/45">Chongqing · New York / New Jersey</span>
           </span>
         </Link>
-        <nav className="flex items-center gap-6 text-xs font-medium uppercase tracking-widest">
-          <Link href="/" className="text-foreground/70 hover:text-foreground">
-            Menu
-          </Link>
-          <Link href="/track" className="text-foreground/70 hover:text-foreground">
-            Track order
-          </Link>
-          <Link
-            href="/cart"
-            className="relative rounded-full bg-brand px-5 py-2 text-background hover:bg-brand-dark"
-          >
-            Cart
-            {itemCount > 0 && (
-              <span className="ml-1 inline-flex min-w-5 items-center justify-center rounded-full bg-background px-1 text-foreground normal-case tracking-normal">
-                {itemCount}
-              </span>
-            )}
+        <nav className="flex items-center gap-5 text-[10px] font-medium uppercase tracking-[.2em] sm:gap-8">
+          <Link href="/#sauces" className="hidden hover:text-brand sm:block">Sauces</Link>
+          <Link href="/#story" className="hidden hover:text-brand sm:block">Our story</Link>
+          <Link href="/track" className="hidden hover:text-brand md:block">Orders</Link>
+          <Link href="/cart" className="border border-foreground px-4 py-2 transition hover:bg-foreground hover:text-background">
+            Cart{itemCount > 0 ? ` · ${itemCount}` : ""}
           </Link>
         </nav>
       </div>
