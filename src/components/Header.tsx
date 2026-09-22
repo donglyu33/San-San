@@ -6,22 +6,23 @@ import { useCart } from "@/context/CartContext";
 export function Header() {
   const { itemCount } = useCart();
   return (
-    <header className="sticky top-0 z-20 border-b border-black/10 bg-[#f3eee5]/95 backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
-        <Link href="/" className="flex items-center gap-3">
-          <span className="flex h-9 w-7 items-center justify-center border border-brand text-lg font-display text-brand">三</span>
+    <header className="sticky top-0 z-20 border-b border-black/10 bg-[#f6f0e6]/95 backdrop-blur-md">
+      <div className="mx-auto grid max-w-7xl grid-cols-[1fr_auto_1fr] items-center px-5 py-4 sm:px-8">
+        <nav className="hidden items-center gap-7 text-[9px] uppercase tracking-[.22em] md:flex">
+          <Link href="/#sauces" className="hover:text-brand">Shop</Link>
+          <Link href="/#story" className="hover:text-brand">Our story</Link>
+          <Link href="/#pairings" className="hover:text-brand">Recipes</Link>
+        </nav>
+        <Link href="/" className="col-start-1 flex items-center gap-3 md:col-start-2">
+          <span className="flex h-10 w-8 items-center justify-center border border-brand text-xl font-display text-brand">三</span>
           <span>
-            <span className="block font-display text-lg tracking-[.28em]">SAN SAN</span>
-            <span className="block text-[8px] uppercase tracking-[.3em] text-foreground/45">Chongqing · New York / New Jersey</span>
+            <span className="block font-display text-lg tracking-[.3em]">SAN SAN</span>
+            <span className="block text-[7px] uppercase tracking-[.32em] text-foreground/40">Chongqing · New York</span>
           </span>
         </Link>
-        <nav className="flex items-center gap-5 text-[10px] font-medium uppercase tracking-[.2em] sm:gap-8">
-          <Link href="/#sauces" className="hidden hover:text-brand sm:block">Sauces</Link>
-          <Link href="/#story" className="hidden hover:text-brand sm:block">Our story</Link>
-          <Link href="/track" className="hidden hover:text-brand md:block">Orders</Link>
-          <Link href="/cart" className="border border-foreground px-4 py-2 transition hover:bg-foreground hover:text-background">
-            Cart{itemCount > 0 ? ` · ${itemCount}` : ""}
-          </Link>
+        <nav className="col-start-3 flex items-center justify-end gap-5 text-[9px] uppercase tracking-[.2em]">
+          <Link href="/track" className="hidden hover:text-brand sm:block">Orders</Link>
+          <Link href="/cart" className="hover:text-brand">Cart{itemCount > 0 ? ` · ${itemCount}` : ""}</Link>
         </nav>
       </div>
     </header>
