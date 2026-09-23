@@ -26,7 +26,7 @@ const sections: VisualSection[] = [
   {
     src: "/3.%20Real%20Ingredients.png",
     alt: "Real ingredients, deeper flavors",
-    hotspots: [],
+    hotspots: [{ href: "/craft", label: "Our craft", className: "left-[10%] top-[60%] h-[11%] w-[15%]" }],
   },
   {
     src: "/4.%20Everyday%20Food,%20Elevated.png",
