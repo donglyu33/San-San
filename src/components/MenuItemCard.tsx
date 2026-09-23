@@ -26,7 +26,7 @@ export function MenuItemCard({ id, name, description, priceCents, imageUrl }: Pr
     <div className="group flex flex-col justify-between overflow-hidden border border-brand-light bg-background transition hover:border-foreground/30">
       {imageUrl && (
         // eslint-disable-next-line @next/next/no-img-element -- arbitrary admin-supplied URLs, not a fixed set of domains
-        <img src={imageUrl} alt={name} className="h-44 w-full object-cover" />
+        <img src={imageUrl} alt={name} className="aspect-[4/3] w-full object-cover" loading="lazy" />
       )}
       <div className="flex flex-1 flex-col justify-between p-6">
         <div>
