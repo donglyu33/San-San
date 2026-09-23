@@ -11,5 +11,5 @@ const sauceImages: Record<string, string> = {
 };
 
 export function imageForSauce(name: string, customImageUrl: string | null) {
-  return customImageUrl || sauceImages[name] || null;
+  return sauceImages[name] || customImageUrl || null;
 }
