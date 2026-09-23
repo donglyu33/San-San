@@ -11,7 +11,7 @@ const sections: VisualSection[] = [
   {
     src: "/1.%20Hero.png",
     alt: "San San — A More Delicious Life",
-    hotspots: [{ href: "/shop", label: "Shop sauces", className: "left-[5%] top-[72%] h-[10%] w-[17%]" }],
+    hotspots: [{ href: "/shop", label: "Shop sauces", className: "left-[5%] top-[70.8%] h-[8%] w-[16%]" }],
   },
   {
     src: "/2.%20Our%20Sauce.png",
