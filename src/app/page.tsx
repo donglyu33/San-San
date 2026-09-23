@@ -11,34 +11,34 @@ const sections: VisualSection[] = [
   {
     src: "/1.%20Hero.png",
     alt: "San San — A More Delicious Life",
-    hotspots: [{ href: "/shop", label: "Shop sauces", className: "left-[8%] top-[64%] h-[10%] w-[18%]" }],
+    hotspots: [{ href: "/shop", label: "Shop sauces", className: "left-[5%] top-[70.8%] h-[8%] w-[16%]" }],
   },
   {
     src: "/2.%20Our%20Sauce.png",
     alt: "San San Chili Oil and Beef Chili",
     id: "sauces",
     hotspots: [
-      { href: "/shop", label: "Shop all sauces", className: "left-[6%] top-[61%] h-[10%] w-[17%]" },
-      { href: "/shop", label: "Shop Chili Oil", className: "left-[67%] top-[26%] h-[23%] w-[27%]" },
-      { href: "/shop", label: "Shop Beef Chili", className: "left-[67%] top-[54%] h-[25%] w-[27%]" },
+      { href: "/shop", label: "Shop all sauces", className: "left-[5%] top-[42%] h-[10%] w-[14%]" },
+      { href: "/shop", label: "Shop Chili Oil", className: "left-[79%] top-[12%] h-[25%] w-[19%]" },
+      { href: "/shop", label: "Shop Beef Chili", className: "left-[79%] top-[39%] h-[25%] w-[19%]" },
     ],
   },
   {
     src: "/3.%20Real%20Ingredients.png",
     alt: "Real ingredients, deeper flavors",
-    hotspots: [],
+    hotspots: [{ href: "/craft", label: "Our craft", className: "left-[10%] top-[60%] h-[11%] w-[15%]" }],
   },
   {
     src: "/4.%20Everyday%20Food,%20Elevated.png",
     alt: "Everyday Food, Elevated — eggs, pasta, chicken, steak and vegetables",
     id: "recipes",
-    hotspots: [{ href: "/recipes", label: "Explore recipes", className: "left-[6%] top-[58%] h-[11%] w-[20%]" }],
+    hotspots: [{ href: "/recipes", label: "Explore recipes", className: "left-[2%] top-[56%] h-[12%] w-[16%]" }],
   },
   {
     src: "/5.%20Good%20Food%20brings%20Good%20People%20Together.png",
     alt: "Good Food Brings Good People Together",
     id: "story",
-    hotspots: [{ href: "/story", label: "Our story", className: "left-[64%] top-[57%] h-[11%] w-[17%]" }],
+    hotspots: [{ href: "/story", label: "Our story", className: "left-[63%] top-[61%] h-[12%] w-[15%]" }],
   },
 ];
 
@@ -57,11 +57,20 @@ export default async function HomePage() {
                 href={hotspot.href}
                 aria-label={hotspot.label}
                 title={hotspot.label}
-                className={`absolute z-10 cursor-pointer rounded-sm focus:outline-none focus:ring-2 focus:ring-[#a62525] focus:ring-offset-2 ${hotspot.className}`}
+                className={`absolute z-10 hidden cursor-pointer rounded-sm outline-offset-2 hover:outline hover:outline-2 hover:outline-[#a62525] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a62525] sm:block ${hotspot.className}`}
               >
                 <span className="sr-only">{hotspot.label}</span>
               </Link>
             ))}
+            {section.hotspots.length > 0 && (
+              <div className="flex flex-wrap gap-2 bg-[#f6f0e6] px-4 py-3 sm:hidden">
+                {section.hotspots.map((hotspot) => (
+                  <Link key={`${section.src}-${hotspot.label}-mobile`} href={hotspot.href} className="inline-flex min-h-11 items-center border border-[#a62525] px-4 text-sm text-[#852222]">
+                    {hotspot.label} →
+                  </Link>
+                ))}
+              </div>
+            )}
           </section>
         ))}
       </div>

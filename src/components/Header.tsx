@@ -22,6 +22,12 @@ export function Header() {
           <Link href="/cart" className="hover:text-brand">Cart{itemCount > 0 ? ` · ${itemCount}` : ""}</Link>
         </nav>
       </div>
+      <nav aria-label="Mobile navigation" className="flex justify-center gap-7 border-t border-black/10 px-4 py-3 text-xs uppercase tracking-widest md:hidden">
+        <Link href="/shop" className="hover:text-brand">Shop</Link>
+        <Link href="/story" className="hover:text-brand">Our story</Link>
+        <Link href="/recipes" className="hover:text-brand">Recipes</Link>
+        <Link href="/track" className="hover:text-brand">Orders</Link>
+      </nav>
     </header>
   );
 }

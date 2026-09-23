@@ -25,10 +25,10 @@ export default function CheckoutPage() {
       <div className="mx-auto max-w-lg px-4 py-16 text-center">
         <h1 className="text-2xl font-bold text-brand-dark">Your cart is empty</h1>
         <Link
-          href="/"
+          href="/shop"
           className="mt-6 inline-block rounded-full bg-brand px-6 py-2 font-medium text-white hover:bg-brand-dark"
         >
-          Browse menu
+          Shop sauces
         </Link>
       </div>
     );
