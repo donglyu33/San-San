@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { MenuItemCard } from "@/components/MenuItemCard";
-import { imageForSauce } from "@/lib/sauceImages";
+import { displaySauce, imageForSauce } from "@/lib/sauceImages";
 
 export const dynamic = "force-dynamic";
 
@@ -83,7 +83,7 @@ export default async function HomePage() {
             <Link href="/shop" className="text-[10px] uppercase tracking-[.2em] text-brand">Shop all →</Link>
           </div>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {items.map((item) => <MenuItemCard key={item.id} id={item.id} name={item.name} description={item.description} priceCents={item.priceCents} imageUrl={imageForSauce(item.name, item.imageUrl)} />)}
+            {items.map((item) => <MenuItemCard key={item.id} id={item.id} {...displaySauce(item.name, item.description)} priceCents={item.priceCents} imageUrl={imageForSauce(item.name, item.imageUrl)} />)}
           </div>
         </section>
       )}
