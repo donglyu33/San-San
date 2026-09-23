@@ -15,6 +15,7 @@ export function imageForSauce(name: string, customImageUrl: string | null) {
   return sauceImages[name] || customImageUrl || null;
 }
 
+// Keep customer-facing copy in sync with the approved garlic chili recipe until the admin record is renamed.
 export function displaySauce(name: string, description: string) {
   if (name === "Garlic Scallion Sauce") {
     return {
