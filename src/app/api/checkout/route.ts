@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { stripe } from "@/lib/stripe";
 import { checkoutRequestSchema } from "@/lib/checkoutSchema";
 import { DELIVERY_FEE_CENTS } from "@/lib/money";
+import { displaySauce } from "@/lib/sauceImages";
 
 export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => null);
@@ -33,7 +34,7 @@ export async function POST(req: NextRequest) {
     const menuItem = menuItems.find((m) => m.id === cartItem.menuItemId)!;
     return {
       menuItemId: menuItem.id,
-      nameSnapshot: menuItem.name,
+      nameSnapshot: displaySauce(menuItem.name, menuItem.description).name,
       priceCentsSnapshot: menuItem.priceCents,
       quantity: cartItem.quantity,
     };
