@@ -7,6 +7,7 @@ const sauceImages: Record<string, string> = {
   "Garlic Scallion Sauce": "/sauces/garlic-chili.webp",
   "Garlic Chili Sauce": "/sauces/garlic-chili.webp",
   "Chongqing Chill oil": "/sauces/chongqing-chili-oil.webp",
+  "Chongqing Chili Oil": "/sauces/chongqing-chili-oil.webp",
   "Savory Shiitake Beef": "/sauces/shiitake-beef.webp",
   "Seasoned Minced Pork": "/sauces/seasoned-minced-pork.webp",
 };
