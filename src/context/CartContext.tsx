@@ -9,6 +9,7 @@ import {
   useState,
 } from "react";
 import type { CartItem } from "@/types/cart";
+import { displaySauce } from "@/lib/sauceImages";
 
 const STORAGE_KEY = "san-san-cart";
 
@@ -35,7 +36,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     try {
       const raw = window.localStorage.getItem(STORAGE_KEY);
       // eslint-disable-next-line react-hooks/set-state-in-effect
-      if (raw) setItems(JSON.parse(raw));
+      if (raw) setItems((JSON.parse(raw) as CartItem[]).map((item) => ({
+        ...item,
+        name: displaySauce(item.name, "").name,
+      })));
     } catch {
       // ignore corrupt local storage
     }
@@ -53,7 +57,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       if (existing) {
         return prev.map((i) =>
           i.menuItemId === item.menuItemId
-            ? { ...i, quantity: i.quantity + quantity }
+            ? { ...i, name: item.name, quantity: i.quantity + quantity }
             : i
         );
       }
