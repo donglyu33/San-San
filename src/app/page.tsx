@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { EverydayFoodSection } from "@/components/EverydayFoodSection";
 import { prisma } from "@/lib/prisma";
 import { MenuItemCard } from "@/components/MenuItemCard";
 import { displaySauce, imageForSauce } from "@/lib/sauceImages";
@@ -31,7 +32,7 @@ const sections: VisualSection[] = [
   },
   {
     src: "/4.%20Everyday%20Food,%20Elevated.png",
-    alt: "Everyday Food, Elevated — eggs, pasta, chicken, steak and vegetables",
+    alt: "Everyday Food, Elevated — eggs, pasta, eggs and toast, roasted squash and noodles",
     id: "recipes",
     hotspots: [{ href: "/recipes", label: "Explore recipes", className: "left-[2%] top-[56%] h-[12%] w-[16%]" }],
   },
@@ -51,6 +52,7 @@ export default async function HomePage() {
       <p className="bg-[#171615] px-6 py-4 text-center font-display text-lg tracking-wide text-[#f3eee5] sm:text-xl">One Spoon, Endless Ways.</p>
       <div className="w-full overflow-hidden">
         {sections.map((section, index) => (
+          section.id === "recipes" ? <EverydayFoodSection key="recipes" /> :
           <section key={section.src} id={section.id} className="relative w-full">
             <img src={section.src} alt={section.alt} className="block h-auto w-full" loading={index === 0 ? "eager" : "lazy"} />
             {section.hotspots.map((hotspot) => (
