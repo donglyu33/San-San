@@ -4,7 +4,13 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 sm:grid-cols-2 sm:px-8">
         <div>
           <p className="font-display text-3xl tracking-[.18em]">SAN SAN</p>
-          <p className="mt-3 max-w-sm font-display text-xl italic text-white/70">A more delicious life, one spoonful at a time.</p>
+          <p className="mt-3 max-w-sm font-display text-xl italic text-white/70">One Spoon, Endless Ways.</p>
+          <nav aria-label="San San social media" className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            <a className="inline-flex min-h-11 items-center underline-offset-4 hover:underline focus-visible:outline" href="https://www.instagram.com/sansan.sauce/" target="_blank" rel="noopener noreferrer">Instagram<span className="sr-only"> (opens in a new tab)</span></a>
+            <a className="inline-flex min-h-11 items-center underline-offset-4 hover:underline focus-visible:outline" href="https://facebook.com/profile.php?id=100013677274054" target="_blank" rel="noopener noreferrer">Facebook<span className="sr-only"> (opens in a new tab)</span></a>
+            <a className="inline-flex min-h-11 items-center underline-offset-4 hover:underline focus-visible:outline" href="https://xhslink.cn/m/Ax1Q7D5cXai" target="_blank" rel="noopener noreferrer">RedNote<span className="sr-only"> (opens in a new tab)</span></a>
+          </nav>
+          <a href="mailto:sansanfoods@gmail.com" className="mt-2 inline-flex min-h-11 items-center text-sm underline-offset-4 hover:underline focus-visible:outline">sansanfoods@gmail.com</a>
         </div>
         <div className="sm:text-right">
           <p className="text-[10px] uppercase tracking-[.25em] text-white/45">Rooted in Chongqing · Handcrafted in small batches</p>

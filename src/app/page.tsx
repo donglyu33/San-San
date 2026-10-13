@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { EverydayFoodSection } from "@/components/EverydayFoodSection";
 import { prisma } from "@/lib/prisma";
 import { MenuItemCard } from "@/components/MenuItemCard";
 import { displaySauce, imageForSauce } from "@/lib/sauceImages";
@@ -31,7 +32,7 @@ const sections: VisualSection[] = [
   },
   {
     src: "/4.%20Everyday%20Food,%20Elevated.png",
-    alt: "Everyday Food, Elevated — eggs, pasta, chicken, steak and vegetables",
+    alt: "Everyday Food, Elevated — eggs, pasta, eggs and toast, roasted squash and noodles",
     id: "recipes",
     hotspots: [{ href: "/recipes", label: "Explore recipes", className: "left-[2%] top-[56%] h-[12%] w-[16%]" }],
   },
@@ -47,9 +48,11 @@ export default async function HomePage() {
   const items = await prisma.menuItem.findMany({ where: { available: true }, orderBy: { sortOrder: "asc" } });
 
   return (
-    <main className="bg-[#f6f0e6]">
+    <div className="bg-[#f6f0e6]">
+      <p className="bg-[#171615] px-6 py-4 text-center font-display text-lg tracking-wide text-[#f3eee5] sm:text-xl">One Spoon, Endless Ways.</p>
       <div className="w-full overflow-hidden">
         {sections.map((section, index) => (
+          section.id === "recipes" ? <EverydayFoodSection key="recipes" /> :
           <section key={section.src} id={section.id} className="relative w-full">
             <img src={section.src} alt={section.alt} className="block h-auto w-full" loading={index === 0 ? "eager" : "lazy"} />
             {section.hotspots.map((hotspot) => (
@@ -87,6 +90,18 @@ export default async function HomePage() {
           </div>
         </section>
       )}
-    </main>
+      <section id="label-concept" className="mx-auto grid max-w-5xl items-center gap-8 border-t border-black/10 px-6 py-12 sm:grid-cols-2 sm:px-8">
+        <div>
+          <p className="text-[10px] uppercase tracking-[.25em] text-brand">Packaging · A first look</p>
+          <h2 className="mt-4 font-display text-3xl">A new label for San San.</h2>
+          <p className="mt-4 text-sm leading-7 text-foreground/65">Cream-white paper, black lettering, and our red 三 seal. A simple direction for the sauce collection, with the final design still taking shape.</p>
+        </div>
+        <figure>
+          {/* eslint-disable-next-line @next/next/no-img-element -- original vector packaging illustration */}
+          <img src="/label-concept.svg" alt="Illustrated cream-white San San label concepts for Chili Oil and Beef Chili, with black lettering and red seals." width={1000} height={760} loading="lazy" className="h-auto w-full" />
+          <figcaption className="mt-3 text-xs leading-5 text-foreground/60">Packaging concept · Illustration, not a photograph of the finished product.</figcaption>
+        </figure>
+      </section>
+    </div>
   );
 }

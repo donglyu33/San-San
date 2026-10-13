@@ -10,7 +10,7 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 const fraunces = Fraunces({ variable: "--font-fraunces", subsets: ["latin"], style: ["normal", "italic"] });
 
 export const metadata: Metadata = {
-  title: "San San — A Brighter Table",
+  title: "San San — One Spoon, Endless Ways.",
   description: "Chongqing-rooted chili sauces, thoughtfully handcrafted in small batches for a more delicious everyday table.",
 };
 

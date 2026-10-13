@@ -3,8 +3,8 @@ import Link from "next/link";
 const ideas = [
   ["Eggs", "A spoonful over soft eggs adds savory depth and a gentle kick."],
   ["Pasta", "Finish noodles or pasta with San San for warmth, richness, and texture."],
-  ["Roast Chicken", "Serve alongside crisp-skinned roast chicken for an effortless finishing sauce."],
-  ["Seared Steak", "Pair with sliced steak for a deeply savory contrast."],
+  ["Rice", "Add a little Beef Chili to a warm bowl of rice and let the sauce take the lead."],
+  ["Tofu", "Finish soft tofu with a spoonful of Chili Oil for an easy, flavorful plate."],
   ["Roasted Vegetables", "Spoon over roasted seasonal vegetables just before serving."],
 ];
 
