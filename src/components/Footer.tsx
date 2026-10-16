@@ -1,3 +1,11 @@
+import Image from "next/image";
+
+const socialLinks = [
+  { name: "Instagram", icon: "instagram", href: "https://www.instagram.com/sansan.sauce/" },
+  { name: "Facebook", icon: "facebook", href: "https://facebook.com/profile.php?id=100013677274054" },
+  { name: "小红书 / RedNote", icon: "xiaohongshu", href: "https://xhslink.cn/m/Ax1Q7D5cXai" },
+];
+
 export function Footer() {
   return (
     <footer className="bg-[#171615] text-[#f3eee5]">
@@ -5,10 +13,20 @@ export function Footer() {
         <div>
           <p className="font-display text-3xl tracking-[.18em]">SAN SAN</p>
           <p className="mt-3 max-w-sm font-display text-xl italic text-white/70">One Spoon, Endless Ways.</p>
-          <nav aria-label="San San social media" className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-            <a className="inline-flex min-h-11 items-center underline-offset-4 hover:underline focus-visible:outline" href="https://www.instagram.com/sansan.sauce/" target="_blank" rel="noopener noreferrer">Instagram<span className="sr-only"> (opens in a new tab)</span></a>
-            <a className="inline-flex min-h-11 items-center underline-offset-4 hover:underline focus-visible:outline" href="https://facebook.com/profile.php?id=100013677274054" target="_blank" rel="noopener noreferrer">Facebook<span className="sr-only"> (opens in a new tab)</span></a>
-            <a className="inline-flex min-h-11 items-center underline-offset-4 hover:underline focus-visible:outline" href="https://xhslink.cn/m/Ax1Q7D5cXai" target="_blank" rel="noopener noreferrer">RedNote<span className="sr-only"> (opens in a new tab)</span></a>
+          <nav aria-label="San San social media" className="mt-6 flex flex-wrap gap-3">
+            {socialLinks.map(({ name, icon, href }) => (
+              <a
+                key={icon}
+                href={href}
+                aria-label={`${name} (opens in a new tab)`}
+                title={name}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/25 transition-colors hover:border-white/70 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f3eee5]"
+              >
+                <Image src={`/social/${icon}.svg`} alt="" width={24} height={24} className="h-6 w-6 invert" aria-hidden="true" />
+              </a>
+            ))}
           </nav>
           <a href="mailto:sansanfoods33@gmail.com" className="mt-2 inline-flex min-h-11 items-center text-sm underline-offset-4 hover:underline focus-visible:outline">sansanfoods33@gmail.com</a>
         </div>
