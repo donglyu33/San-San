@@ -16,8 +16,8 @@ const sections: VisualSection[] = [
     hotspots: [{ href: "/shop", label: "Shop sauces", className: "left-[5%] top-[70.8%] h-[8%] w-[16%]" }],
   },
   {
-    src: "/2.%20Our%20Sauce.png",
-    alt: "San San Chili Oil and Beef Chili",
+    src: "/packaging/sauces-stone-new-labels.png",
+    alt: "San San Soul Chili Oil and Savory Beef Chili with illustrated cream labels, on a stone slab with chili peppers and Sichuan peppercorns",
     id: "sauces",
     hotspots: [
       { href: "/shop", label: "Shop all sauces", className: "left-[5%] top-[42%] h-[10%] w-[14%]" },
@@ -92,14 +92,22 @@ export default async function HomePage() {
       )}
       <section id="label-concept" className="mx-auto grid max-w-5xl items-center gap-8 border-t border-black/10 px-6 py-12 sm:grid-cols-2 sm:px-8">
         <div>
-          <p className="text-[10px] uppercase tracking-[.25em] text-brand">Packaging · A first look</p>
-          <h2 className="mt-4 font-display text-3xl">A new label for San San.</h2>
-          <p className="mt-4 text-sm leading-7 text-foreground/65">Cream-white paper, black lettering, and our red 三 seal. A simple direction for the sauce collection, with the final design still taking shape.</p>
+          <p className="text-[10px] uppercase tracking-[.25em] text-brand">Packaging · The selected direction</p>
+          <h2 className="mt-4 font-display text-3xl">A label that feels like San San.</h2>
+          <p className="mt-4 text-sm leading-7 text-foreground/65">Cream paper, ingredient illustrations, and warm, earthy tones. A fresh look for the San San collection.</p>
         </div>
         <figure>
-          {/* eslint-disable-next-line @next/next/no-img-element -- original vector packaging illustration */}
-          <img src="/label-concept.svg" alt="Illustrated cream-white San San label concepts for Chili Oil and Beef Chili, with black lettering and red seals." width={1000} height={760} loading="lazy" className="h-auto w-full" />
-          <figcaption className="mt-3 text-xs leading-5 text-foreground/60">Packaging concept · Illustration, not a photograph of the finished product.</figcaption>
+          <div className="grid grid-cols-3 items-start gap-3">
+            {[
+              { src: "/packaging/green-jar.png", name: "Smoky Green Chili" },
+              { src: "/packaging/beef-jar.png", name: "Savory Beef Chili" },
+              { src: "/packaging/soul-jar.png", name: "Soul Chili Oil" },
+            ].map((jar, index) => (
+              // eslint-disable-next-line @next/next/no-img-element -- owner-supplied packaging concept artwork
+              <img key={jar.src} src={jar.src} alt={`${jar.name} packaging concept`} loading="lazy" className={`aspect-[4/5] w-full object-cover ${index === 1 ? "mt-6" : ""}`} />
+            ))}
+          </div>
+          <figcaption className="mt-3 text-xs leading-5 text-foreground/60">Packaging concept · Not a photograph of the finished product.</figcaption>
         </figure>
       </section>
     </div>

@@ -1,6 +1,8 @@
 import Link from "next/link";
 
 const replacements = [
+  { src: "/serving/green-pepper-fish.png", label: "FISH", alt: "Fish with green pepper chili relish", left: 490, width: 276, position: "50% 65%" },
+  { src: "/serving/green-pepper-beef.png", label: "BEEF", alt: "Beef with green pepper and garlic sauce", left: 775, width: 300, position: "50% 50%" },
   { src: "/serving/eggs-and-toast.webp", label: "EGGS & TOAST", alt: "Soft eggs with sauce and bread", left: 1084, width: 301, position: "48% 55%" },
   { src: "/serving/roasted-squash.webp", label: "ROASTED SQUASH", alt: "Roasted squash with sauce", left: 1395, width: 315, position: "50% 50%" },
   { src: "/serving/sauce-noodles.webp", label: "NOODLES", alt: "Noodles topped with sauce and greens", left: 1721, width: 315, position: "50% 50%" },
@@ -11,7 +13,7 @@ export function EverydayFoodSection() {
     <section id="recipes" className="relative w-full">
       <div className="relative">
       {/* eslint-disable-next-line @next/next/no-img-element -- retained full-width artwork */}
-      <img src="/4.%20Everyday%20Food,%20Elevated.png" alt="Everyday Food, Elevated. From morning eggs to late-night noodles, our sauces add bold flavor to everyday meals. Eggs and pasta serving ideas." width={2079} height={756} loading="lazy" className="block h-auto w-full" />
+      <img src="/4.%20Everyday%20Food,%20Elevated.png" alt="Everyday Food, Elevated. From morning eggs to late-night noodles, our sauces add bold flavor to everyday meals. Fish, beef, eggs and toast, roasted squash and noodles serving ideas." width={2079} height={756} loading="lazy" className="block h-auto w-full" />
       {replacements.map(photo => (
         <figure key={photo.src} className="absolute overflow-hidden" style={{ left: `${photo.left / 2079 * 100}%`, top: `${64 / 756 * 100}%`, width: `${photo.width / 2079 * 100}%`, height: `${602 / 756 * 100}%`, margin: 0, background: "#171615" }}>
           {/* eslint-disable-next-line @next/next/no-img-element -- owner-provided serving photographs */}
