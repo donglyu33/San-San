@@ -10,7 +10,7 @@ export function Footer() {
             <a className="inline-flex min-h-11 items-center underline-offset-4 hover:underline focus-visible:outline" href="https://facebook.com/profile.php?id=100013677274054" target="_blank" rel="noopener noreferrer">Facebook<span className="sr-only"> (opens in a new tab)</span></a>
             <a className="inline-flex min-h-11 items-center underline-offset-4 hover:underline focus-visible:outline" href="https://xhslink.cn/m/Ax1Q7D5cXai" target="_blank" rel="noopener noreferrer">RedNote<span className="sr-only"> (opens in a new tab)</span></a>
           </nav>
-          <a href="mailto:sansanfoods@gmail.com" className="mt-2 inline-flex min-h-11 items-center text-sm underline-offset-4 hover:underline focus-visible:outline">sansanfoods@gmail.com</a>
+          <a href="mailto:sansanfoods33@gmail.com" className="mt-2 inline-flex min-h-11 items-center text-sm underline-offset-4 hover:underline focus-visible:outline">sansanfoods33@gmail.com</a>
         </div>
         <div className="sm:text-right">
           <p className="text-[10px] uppercase tracking-[.25em] text-white/45">Rooted in Chongqing · Handcrafted in small batches</p>
