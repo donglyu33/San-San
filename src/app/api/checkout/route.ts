@@ -1,4 +1,3 @@
-import { SAUCE_SALE_WHERE, STOREFRONT_ORDERS_ENABLED } from "@/lib/catalog";
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { stripe } from "@/lib/stripe";
@@ -7,10 +6,6 @@ import { DELIVERY_FEE_CENTS } from "@/lib/money";
 import { displaySauce } from "@/lib/sauceImages";
 
 export async function POST(req: NextRequest) {
-  if (!STOREFRONT_ORDERS_ENABLED) {
-    return NextResponse.json({ error: "Ordering is paused while launch details are confirmed. Please contact San San for updates." }, { status: 409 });
-  }
-
   const body = await req.json().catch(() => null);
   const parsed = checkoutRequestSchema.safeParse(body);
 
@@ -25,7 +20,7 @@ export async function POST(req: NextRequest) {
 
   const menuItemIds = data.items.map((i) => i.menuItemId);
   const menuItems = await prisma.menuItem.findMany({
-    where: { id: { in: menuItemIds }, ...SAUCE_SALE_WHERE },
+    where: { id: { in: menuItemIds }, available: true },
   });
 
   if (menuItems.length !== new Set(menuItemIds).size) {

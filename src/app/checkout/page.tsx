@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { STOREFRONT_ORDERS_ENABLED } from "@/lib/catalog";
-import { LaunchNotice } from "@/components/LaunchNotice";
 import { useCart } from "@/context/CartContext";
 import { formatCents, DELIVERY_FEE_CENTS } from "@/lib/money";
 
@@ -21,8 +19,6 @@ export default function CheckoutPage() {
 
   const deliveryFeeCents = deliveryMethod === "DELIVERY" ? DELIVERY_FEE_CENTS : 0;
   const totalCents = subtotalCents + deliveryFeeCents;
-
-  if (!STOREFRONT_ORDERS_ENABLED) return <LaunchNotice />;
 
   if (items.length === 0) {
     return (

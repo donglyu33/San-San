@@ -5,8 +5,6 @@ export const CATEGORIES = {
   spices: { label: "Ingredients & Spices", href: "/ingredients-spices" },
 } as const;
 
-export const SAUCE_SALE_WHERE = { available: true, category: CATEGORIES.sauces.databaseCategory };
-
 export const SPICE_PREVIEWS = [
   { slug: "sichuan-green-peppercorn", name: "Sichuan Green Peppercorn", chinese: "青花椒", type: "Peppercorns" },
   { slug: "da-hong-pao-sichuan-peppercorn", name: "Da Hong Pao Sichuan Peppercorn", chinese: "大红袍花椒", type: "Peppercorns" },
@@ -18,6 +16,3 @@ export const SPICE_PREVIEWS = [
 export function spiceNotificationHref(name: string) {
   return `mailto:sansanfoods33@gmail.com?subject=${encodeURIComponent(`Notify me: ${name}`)}&body=${encodeURIComponent(`Hello San San,\n\nPlease email me when ${name} is available.\n\nThank you!`)}`;
 }
-
-// Re-enable only after the owner confirms products, pricing and launch readiness.
-export const STOREFRONT_ORDERS_ENABLED = false;

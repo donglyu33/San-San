@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { SAUCE_SALE_WHERE } from "@/lib/catalog";
 import { EverydayFoodSection } from "@/components/EverydayFoodSection";
 import { prisma } from "@/lib/prisma";
 import { MenuItemCard } from "@/components/MenuItemCard";
@@ -46,7 +45,7 @@ const sections: VisualSection[] = [
 ];
 
 export default async function HomePage() {
-  const items = await prisma.menuItem.findMany({ where: SAUCE_SALE_WHERE, orderBy: { sortOrder: "asc" } });
+  const items = await prisma.menuItem.findMany({ where: { available: true }, orderBy: { sortOrder: "asc" } });
 
   return (
     <div className="bg-[#f6f0e6]">
