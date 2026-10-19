@@ -1,48 +1,19 @@
-"use client";
+import { spiceNotificationHref } from "@/lib/catalog";
 
-import { useState } from "react";
-import { useCart } from "@/context/CartContext";
-import { formatCents } from "@/lib/money";
+type Props = { id: string; name: string; description: string; priceCents: number; imageUrl?: string | null };
 
-type Props = {
-  id: string;
-  name: string;
-  description: string;
-  priceCents: number;
-  imageUrl?: string | null;
-};
-
-export function MenuItemCard({ id, name, description, priceCents, imageUrl }: Props) {
-  const { addItem } = useCart();
-  const [justAdded, setJustAdded] = useState(false);
-
-  function handleAdd() {
-    addItem({ menuItemId: id, name, priceCents });
-    setJustAdded(true);
-    setTimeout(() => setJustAdded(false), 1200);
-  }
-
-  return (
-    <div className="group flex flex-col justify-between overflow-hidden border border-brand-light bg-background transition hover:border-foreground/30">
-      {imageUrl && (
-        // eslint-disable-next-line @next/next/no-img-element -- arbitrary admin-supplied URLs, not a fixed set of domains
-        <img src={imageUrl} alt={name} className="aspect-[4/3] w-full object-cover" loading="lazy" />
-      )}
-      <div className="flex flex-1 flex-col justify-between p-6">
-        <div>
-          <div className="flex items-start justify-between gap-3">
-            <h3 className="font-display text-lg text-foreground">{name}</h3>
-            <span className="whitespace-nowrap text-accent">{formatCents(priceCents)}</span>
-          </div>
-          <p className="mt-2 text-sm text-foreground/60">{description}</p>
-        </div>
-        <button
-          onClick={handleAdd}
-          className="mt-5 self-start border-b border-foreground/30 pb-0.5 text-xs font-medium uppercase tracking-widest text-foreground transition group-hover:border-foreground"
-        >
-          {justAdded ? "Added" : "Add to cart"}
-        </button>
-      </div>
+export function MenuItemCard({ name, description, imageUrl }: Props) {
+  return <article className="flex flex-col overflow-hidden border border-brand-light bg-background">
+    {imageUrl && (
+      // eslint-disable-next-line @next/next/no-img-element -- existing admin-supplied product imagery
+      <img src={imageUrl} alt={name} className="aspect-[4/3] w-full object-cover" loading="lazy" />
+    )}
+    <div className="flex flex-1 flex-col p-6">
+      <p className="text-[10px] uppercase tracking-[.2em] text-brand">Coming Soon</p>
+      <h3 className="mt-3 font-display text-xl">{name}</h3>
+      <p className="mt-2 flex-1 text-sm leading-6 text-foreground/65">{description}</p>
+      <a href={spiceNotificationHref(name)} aria-label={`Request launch updates by email for ${name}`} className="mt-5 inline-flex min-h-11 items-center self-start border-b border-brand text-xs uppercase tracking-widest text-brand">Notify Me ↗</a>
+      <p className="mt-3 text-xs text-foreground/60">Opens your email app to request launch updates.</p>
     </div>
-  );
+  </article>;
 }

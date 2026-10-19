@@ -33,6 +33,7 @@ export function Footer() {
         <div className="sm:text-right">
           <p className="text-[10px] uppercase tracking-[.25em] text-white/45">Rooted in Chongqing · Handcrafted in small batches</p>
           <p className="mt-5 text-sm text-white/65">Chinese flavors, thoughtfully crafted for everyday tables.</p>
+          <a href="/ingredients-spices" className="mt-6 block text-sm text-white/80 hover:underline">Ingredients &amp; Spices · Coming Soon</a>
           <a href="/admin/login" className="mt-8 inline-block text-[9px] uppercase tracking-[.2em] text-white/30 hover:text-white">Staff login</a>
         </div>
       </div>

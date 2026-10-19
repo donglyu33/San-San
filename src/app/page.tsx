@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SAUCE_SALE_WHERE } from "@/lib/catalog";
 import { EverydayFoodSection } from "@/components/EverydayFoodSection";
 import { prisma } from "@/lib/prisma";
 import { MenuItemCard } from "@/components/MenuItemCard";
@@ -45,7 +46,7 @@ const sections: VisualSection[] = [
 ];
 
 export default async function HomePage() {
-  const items = await prisma.menuItem.findMany({ where: { available: true }, orderBy: { sortOrder: "asc" } });
+  const items = await prisma.menuItem.findMany({ where: SAUCE_SALE_WHERE, orderBy: { sortOrder: "asc" } });
 
   return (
     <div className="bg-[#f6f0e6]">
@@ -79,6 +80,12 @@ export default async function HomePage() {
         ))}
       </div>
 
+      <section id="ingredients-spices" className="border-y border-black/15 px-6 py-16 sm:px-8 sm:py-24">
+        <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2 md:items-center">
+          <div><p className="text-[10px] uppercase tracking-[.25em] text-brand">The San San pantry · Coming Soon</p><h2 className="mt-5 font-display text-4xl sm:text-5xl">Ingredients &amp; Spices</h2><p className="mt-6 max-w-lg text-sm leading-7 text-foreground/70">Discover our upcoming collection of Sichuan peppercorns, dried chilies, and Chinese dry dipping seasoning.</p><Link href="/ingredients-spices" className="mt-8 inline-flex min-h-12 items-center bg-[#171615] px-6 text-xs tracking-wide text-[#f6f0e6]">Explore the collection →</Link></div>
+          <div className="border-l-2 border-brand pl-8"><p lang="zh" className="font-display text-3xl leading-loose text-brand">青花椒 · 大红袍花椒<br />二荆条 · 子弹头 · 干蘸料</p><p className="mt-5 text-xs leading-6 text-foreground/60">Five pantry essentials. A new chapter for your everyday table.</p></div>
+        </div>
+      </section>
       {items.length > 0 && (
         <section id="shop-preview" className="mx-auto max-w-7xl px-6 py-20 sm:px-8">
           <div className="mb-10 flex items-end justify-between gap-6 border-b border-black/10 pb-5">
