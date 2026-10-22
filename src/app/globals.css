@@ -104,3 +104,60 @@ a:focus-visible { outline:2px solid #a43d2c; outline-offset:5px; }
 @media(max-width:899px) { .reference-nav { flex-wrap:wrap; gap:14px; } .reference-nav nav { order:3; width:100%; justify-content:center; gap:18px; flex-wrap:wrap; } .reference-hero { min-height:500px; } .reference-hero:after { content:''; position:absolute; inset:0; background:linear-gradient(90deg,#f5f2ecd9,transparent); } .hero-copy { z-index:2; } .recipe-strip { display:block; padding:30px 6.2%; } .recipe-intro { margin-bottom:24px; } .recipe-intro>p:not(.eyebrow) { max-width:440px; } .recipe-photo { min-height:230px; } .story-strip { grid-template-columns:1fr 1fr; } }
 @media(max-width:600px) { .reference-home h1 { font-size:48px; } .reference-hero { min-height:530px; } .reference-hero .section-photo { object-position:62% center; } .section-heading { display:block; } .section-heading>p,.section-heading>div:last-child { margin-top:18px; } .explore-grid { grid-template-columns:1fr; } .signature-grid { grid-template-columns:1fr; gap:30px; } .sauce-photo { aspect-ratio:1.3; } .ingredient-banner { min-height:450px; } .ingredient-banner:after { background:#23130d9c; } .recipe-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .recipe-photo { min-height:245px; } .recipe-photo:last-child { grid-column:1/-1; min-height:220px; } .story-strip { grid-template-columns:1fr; } .story-copy { padding:30px 6.2%; } .reference-actions { margin-left:auto; } }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .photo-card img { transition:none; } }
+
+
+/* Phone layouts give photographs their own frames instead of cropping them behind text. */
+@media (max-width:600px) {
+  .reference-hero {
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    height:auto;
+    min-height:0;
+    max-height:none;
+  }
+  .reference-hero .section-photo {
+    position:static;
+    width:100%;
+    height:auto;
+    aspect-ratio:4/3;
+    object-fit:cover;
+    object-position:right center;
+  }
+  .reference-hero:after { display:none; }
+  .hero-copy { padding:28px 6.2% 34px; }
+  .reference-home h1 { font-size:clamp(38px,11.5vw,48px); }
+  .ingredient-banner {
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    min-height:0;
+    background:#352a23;
+  }
+  .ingredient-banner .section-photo {
+    position:static;
+    width:100%;
+    height:auto;
+    aspect-ratio:16/9;
+    object-fit:contain;
+  }
+  .ingredient-banner:after { display:none; }
+  .ingredient-copy { padding:28px 6.2% 34px; }
+  .explore-grid .photo-card { aspect-ratio:4/3; }
+  .explore-grid .photo-card img,
+  .recipe-photo img { position:absolute; inset:0; width:100%; height:100%; }
+  .sauce-photo { aspect-ratio:4/3; }
+  .sauce-photo img { display:block; object-fit:contain; }
+  .recipe-photo,
+  .recipe-photo:last-child { min-height:0; aspect-ratio:3/4; }
+  .recipe-photo:last-child { grid-column:auto; }
+  .recipe-grid { gap:12px; }
+  .recipe-photo span { font-size:11px; left:10px; right:8px; }
+  .story-strip>img {
+    display:block;
+    height:auto;
+    max-height:none;
+    aspect-ratio:16/9;
+    object-fit:contain;
+  }
+}
