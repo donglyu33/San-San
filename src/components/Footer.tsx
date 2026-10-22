@@ -1,41 +1,10 @@
 import Image from "next/image";
-
+import Link from "next/link";
 const socialLinks = [
   { name: "Instagram", icon: "instagram", href: "https://www.instagram.com/sansan.sauce/" },
   { name: "Facebook", icon: "facebook", href: "https://facebook.com/profile.php?id=100013677274054" },
   { name: "小红书 / RedNote", icon: "xiaohongshu", href: "https://xhslink.cn/m/Ax1Q7D5cXai" },
 ];
-
 export function Footer() {
-  return (
-    <footer className="bg-[#171615] text-[#f3eee5]">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 sm:grid-cols-2 sm:px-8">
-        <div>
-          <p className="font-display text-3xl tracking-[.18em]">SAN SAN</p>
-          <p className="mt-3 max-w-sm font-display text-xl italic text-white/70">One Spoon, Endless Ways.</p>
-          <nav aria-label="San San social media" className="mt-6 flex flex-wrap gap-3">
-            {socialLinks.map(({ name, icon, href }) => (
-              <a
-                key={icon}
-                href={href}
-                aria-label={`${name} (opens in a new tab)`}
-                title={name}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/25 transition-colors hover:border-white/70 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f3eee5]"
-              >
-                <Image src={`/social/${icon}.svg`} alt="" width={24} height={24} className="h-6 w-6 invert" aria-hidden="true" />
-              </a>
-            ))}
-          </nav>
-          <a href="mailto:sansanfoods33@gmail.com" className="mt-2 inline-flex min-h-11 items-center text-sm underline-offset-4 hover:underline focus-visible:outline">sansanfoods33@gmail.com</a>
-        </div>
-        <div className="sm:text-right">
-          <p className="text-[10px] uppercase tracking-[.25em] text-white/45">Rooted in Chongqing · Handcrafted in small batches</p>
-          <p className="mt-5 text-sm text-white/65">Chinese flavors, thoughtfully crafted for everyday tables.</p>
-          <a href="/admin/login" className="mt-8 inline-block text-[9px] uppercase tracking-[.2em] text-white/30 hover:text-white">Staff login</a>
-        </div>
-      </div>
-    </footer>
-  );
+  return <footer className="bg-[#f5f2ec] text-[#241f1a]"><div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-8 px-6 py-10 sm:px-12"><div><Link href="/" className="reference-logo">SAN SAN <span aria-hidden="true">☰</span></Link><p className="mt-3 font-serif text-sm">One Spoon, Endless Ways.</p><p lang="zh-Hans" className="mt-2 text-xs text-[#756a5e]">一勺好味，百种可能。</p></div><nav aria-label="Footer navigation" className="flex flex-wrap gap-5 font-serif text-sm"><Link href="/shop">Shop</Link><Link href="/craft">Our Craft</Link><Link href="/recipes">Recipes</Link><Link href="/story">Our Story</Link><a href="mailto:sansanfoods33@gmail.com">Contact</a></nav><nav aria-label="Social media" className="flex gap-3">{socialLinks.map(({ name,icon,href }) => <a key={icon} href={href} aria-label={`${name} (opens in a new tab)`} title={name} target="_blank" rel="noopener noreferrer" className="inline-flex h-11 w-11 items-center justify-center hover:opacity-60"><Image src={`/social/${icon}.svg`} alt="" width={22} height={22} /></a>)}</nav></div><div className="mx-auto flex max-w-7xl justify-between px-6 pb-5 text-[10px] text-[#756a5e] sm:px-12"><span>Rooted in tradition. Made for everyday life.</span><Link href="/admin/login">Staff login</Link></div></footer>;
 }
