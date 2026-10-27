@@ -11,7 +11,7 @@ const chapters = [
     title: "Every Chili Has a Character",
     subtitle: "An ingredient is never just an ingredient.",
     description: "Some chilies bring a warm, rounded fragrance. Others taste bright, smoky, or deeply savory. We look beyond a single heat level to understand the aroma, texture, and personality each one brings to food.",
-    image: "/editorial/peppercorns-approved.jpg",
+    image: "/editorial/chapter-01-chili-character.webp",
     alt: "Sichuan peppercorns selected for their distinctive fragrance",
   },
   {
@@ -19,7 +19,7 @@ const chapters = [
     title: "The Details Make the Difference",
     subtitle: "Flavor is shaped by the way we cook.",
     description: "Roasting green chilies changes their character. Infusing aromatics into oil builds fragrance. Balancing ingredients gives each flavor room to shine. These are the thoughtful choices we keep learning from and refining.",
-    image: "/editorial/ingredients-v2.webp",
+    image: "/editorial/chapter-02-roasted-green-chili.webp",
     alt: "Chilies, garlic, peppercorns and other ingredients used in cooking",
   },
   {
@@ -27,7 +27,7 @@ const chapters = [
     title: "Made for Your Table",
     subtitle: "A little more flavor, every day.",
     description: "Our inspiration comes from family cooking in Chongqing, where a good sauce could make a simple meal memorable. That spirit is what we hope to share: a spoonful that makes eggs, noodles, vegetables, or a family dinner feel special.",
-    image: "/serving/sauce-noodles.webp",
+    image: "/editorial/chapter-03-chili-noodles.webp",
     alt: "Noodles served with chili sauce as everyday meal inspiration",
   },
 ];
