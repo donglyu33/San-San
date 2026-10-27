@@ -1,9 +1,9 @@
 import { PRODUCTS, canonicalProductName } from "./productNames";
 
 const sauceImages: Record<string, string> = {
-  "Soul Chili Oil": "/sauces/chongqing-chili-oil.webp",
-  "Smoky Green Chili": "/sauces/fire-roasted-pepper.webp",
-  "Slow-Simmered Beef Chili": "/sauces/signature-beef-chili.webp",
+  "Soul Chili Oil": "/editorial/soul-jar-approved-v3.webp",
+  "Smoky Green Chili": "/editorial/green-jar-approved-v3.webp",
+  "Slow-Simmered Beef Chili": "/editorial/beef-jar-approved-v3.webp",
   "Hot Pot Base": "/sauces/hot-pot-base.webp",
   "Fire-Roasted Pepper Sauce": "/sauces/fire-roasted-pepper.webp",
   "Braise & Stew Sauce": "/sauces/braise-stew.webp",
