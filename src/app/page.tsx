@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { RecipeCarousel } from "@/components/RecipeCarousel";
 
 const sauces = [
   { name: "Soul Chili Oil", copy: "Fragrant, bold, and deeply satisfying.", image: "/editorial/soul-jar-v2.webp" },
@@ -44,7 +45,7 @@ export default function HomePage() {
         <div><p className="eyebrow">05 / Everyday Food, Elevated</p><h2>Everyday Food,<br />Elevated.</h2></div>
         <div><p>From morning eggs to late-night noodles, our sauces add bold flavor to everyday meals.</p><Link className="text-link" href="/recipes">Explore Recipes →</Link></div>
       </div>
-      <div className="recipe-grid">{recipes.map(([name,image]) => <Link className="photo-card recipe-photo" href="/recipes" key={name}><img loading="lazy" decoding="async" src={image} alt={`${name} serving inspiration`} /><span>{name}</span></Link>)}</div>
+      <RecipeCarousel recipes={recipes.map(([name, image]) => ({ name, image }))} />
     </section>
 
     <section className="story-strip"><img loading="lazy" decoding="async" src="/editorial/table-v2.webp" alt="Dishes shared around a sunlit dining table" /><div className="story-copy"><p className="eyebrow">06 / Our Story</p><h2>From Our Family<br />Kitchen to Yours.</h2><p>Inspired by generations of family cooking in Chongqing, SAN SAN brings rich, layered flavors to everyday meals. Made for real life. Crafted for great flavor.</p><Link className="brand-button" href="/story">Our Story →</Link></div></section>

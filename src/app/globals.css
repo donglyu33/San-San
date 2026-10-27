@@ -165,9 +165,9 @@ a:focus-visible { outline:2px solid #a43d2c; outline-offset:5px; }
 /* A shared editorial rhythm for the three inset homepage sections. */
 .reference-home :is(.explore-section, .signature-section, .recipe-strip) {
   width:100%;
-  max-width:1440px;
+  max-width:none;
   margin-inline:auto;
-  padding:clamp(48px,6vw,88px) 6.2%;
+  padding:clamp(48px,6vw,88px) clamp(20px,2.5vw,48px);
 }
 .reference-home .signature-section { padding-top:0; }
 .reference-home :is(.explore-section, .signature-section, .recipe-strip) .section-heading {
@@ -208,12 +208,51 @@ a:focus-visible { outline:2px solid #a43d2c; outline-offset:5px; }
 .reference-home .sauce-card p { color:#65594e; line-height:1.6; margin-bottom:16px; }
 .reference-home .sauce-card .text-link { margin-top:auto; align-self:flex-start; }
 .reference-home .concept-note { margin-top:28px; }
-.reference-home .recipe-strip { display:block; }
+.reference-home .recipe-strip { display:block; padding-inline:0; }
+.reference-home .recipe-strip .recipe-intro { padding-inline:clamp(20px,2.5vw,48px); }
 .reference-home .recipe-intro h2 { font-size:clamp(30px,3.5vw,50px); }
 .reference-home .recipe-intro { margin-bottom:32px; }
 .reference-home .recipe-grid {
   grid-template-columns:repeat(4,minmax(0,1fr));
   gap:20px;
+}
+
+/* Full-width, gently moving recipe photographs. */
+.recipe-carousel { width:100%; }
+.recipe-carousel-controls {
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:10px;
+  padding:0 clamp(20px,2.5vw,48px) 20px;
+}
+.recipe-carousel-controls button {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:44px;
+  min-height:44px;
+  padding:10px 14px;
+  border:1px solid #bda996;
+  color:#6f2a20;
+  cursor:pointer;
+}
+.recipe-carousel-controls button:hover { background:#e9dfd1; }
+.recipe-carousel-controls button:focus-visible,
+.recipe-carousel-viewport:focus-visible { outline:2px solid #a43d2c; outline-offset:-3px; }
+.recipe-motion-control { font:12px Arial,sans-serif; }
+.recipe-carousel-viewport { overflow-x:auto; overflow-y:hidden; overscroll-behavior-x:contain; scrollbar-width:thin; scrollbar-color:#bda996 transparent; }
+.recipe-carousel-track { display:flex; width:max-content; }
+.recipe-carousel-group { display:flex; gap:16px; padding-right:16px; flex:none; }
+.reference-home .recipe-slide { flex:none; width:max(260px,31vw); aspect-ratio:4/5; }
+.reference-home .recipe-slide img { position:absolute; inset:0; }
+.reference-home .recipe-slide span { left:24px; bottom:24px; font-size:clamp(22px,2vw,30px); }
+@media(max-width:600px) {
+  .reference-home .recipe-slide { width:78vw; aspect-ratio:4/5; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .recipe-motion-control { display:none; }
+  .recipe-carousel-repeat { display:none; }
 }
 .reference-home .recipe-photo {
   min-width:0;
