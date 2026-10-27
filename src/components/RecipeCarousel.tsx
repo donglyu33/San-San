@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-type Recipe = { name: string; image: string };
+type Recipe = { id: string; name: string; image: string };
 
-export function RecipeCarousel({ recipes }: { recipes: Recipe[] }) {
+export function RecipeCarousel({ recipes }: { recipes: readonly Recipe[] }) {
   const viewport = useRef<HTMLDivElement>(null);
   const group = useRef<HTMLDivElement>(null);
   const [paused, setPaused] = useState(false);
@@ -89,7 +89,7 @@ export function RecipeCarousel({ recipes }: { recipes: Recipe[] }) {
         <div className="recipe-carousel-track">
           <div className="recipe-carousel-group" ref={group}>
             {recipes.map(recipe => (
-              <Link className="photo-card recipe-slide" href="/recipes" key={recipe.name}>
+              <Link className="photo-card recipe-slide" href={`/recipes#${recipe.id}`} key={recipe.id}>
                 <img loading="lazy" decoding="async" src={recipe.image} alt={`${recipe.name} serving inspiration`} />
                 <span>{recipe.name}</span>
               </Link>
@@ -97,7 +97,7 @@ export function RecipeCarousel({ recipes }: { recipes: Recipe[] }) {
           </div>
           <div className="recipe-carousel-group recipe-carousel-repeat" aria-hidden="true">
             {recipes.map(recipe => (
-              <Link className="photo-card recipe-slide" href="/recipes" tabIndex={-1} key={recipe.name}>
+              <Link className="photo-card recipe-slide" href={`/recipes#${recipe.id}`} tabIndex={-1} key={recipe.id}>
                 <img loading="lazy" decoding="async" src={recipe.image} alt="" />
                 <span>{recipe.name}</span>
               </Link>
