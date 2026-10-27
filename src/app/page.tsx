@@ -39,7 +39,13 @@ export default function HomePage() {
       <div className="ingredient-copy"><p className="eyebrow">04 / Good Flavor Begins with Good Ingredients</p><h2>Thoughtful Ingredients.<br />Extraordinary Flavor.</h2><p>Chilies, Sichuan peppercorns, olive oil and carefully selected ingredients create rich, layered flavors you can taste.</p><Link className="brand-button" href="/craft">Our Ingredients →</Link></div>
     </section>
 
-    <section className="recipe-strip"><div className="recipe-intro"><p className="eyebrow">05 / Everyday Food, Elevated</p><h2>Everyday Food,<br />Elevated.</h2><p>From morning eggs to late-night noodles, our sauces add bold flavor to everyday meals.</p><Link className="outline-button" href="/recipes">Explore Recipes →</Link></div><div className="recipe-grid">{recipes.map(([name,image]) => <Link className="photo-card recipe-photo" href="/recipes" key={name}><img loading="lazy" decoding="async" src={image} alt={`${name} serving inspiration`} /><span>{name}</span></Link>)}</div></section>
+    <section className="reference-container recipe-strip">
+      <div className="section-heading recipe-intro">
+        <div><p className="eyebrow">05 / Everyday Food, Elevated</p><h2>Everyday Food,<br />Elevated.</h2></div>
+        <div><p>From morning eggs to late-night noodles, our sauces add bold flavor to everyday meals.</p><Link className="text-link" href="/recipes">Explore Recipes →</Link></div>
+      </div>
+      <div className="recipe-grid">{recipes.map(([name,image]) => <Link className="photo-card recipe-photo" href="/recipes" key={name}><img loading="lazy" decoding="async" src={image} alt={`${name} serving inspiration`} /><span>{name}</span></Link>)}</div>
+    </section>
 
     <section className="story-strip"><img loading="lazy" decoding="async" src="/editorial/table-v2.webp" alt="Dishes shared around a sunlit dining table" /><div className="story-copy"><p className="eyebrow">06 / Our Story</p><h2>From Our Family<br />Kitchen to Yours.</h2><p>Inspired by generations of family cooking in Chongqing, SAN SAN brings rich, layered flavors to everyday meals. Made for real life. Crafted for great flavor.</p><Link className="brand-button" href="/story">Our Story →</Link></div></section>
 
