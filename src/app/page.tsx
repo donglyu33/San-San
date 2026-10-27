@@ -25,7 +25,7 @@ export default function HomePage() {
       <div className="section-heading"><div><p className="eyebrow">02 / Explore</p><h2>Two Ways to<br />Bring the Flavor Home.</h2></div><p>From our signature sauces to the carefully<br className="hidden lg:block" /> selected ingredients behind them.</p></div>
       <div className="explore-grid">
         <Link href="/shop" className="photo-card"><img loading="lazy" decoding="async" src="/editorial/explore-v2.webp" alt="Chili oil poured into a ceramic bowl" /><span>Signature Sauces →</span></Link>
-        <Link href="/craft" className="photo-card"><img loading="lazy" decoding="async" src="/editorial/peppercorns-approved.jpg" alt="Dried red and fresh green Sichuan peppercorns on a slate board" /><span>Ingredients &amp; Spices →</span></Link>
+        <Link href="/shop#ingredients-spices" className="photo-card"><img loading="lazy" decoding="async" src="/editorial/peppercorns-approved.jpg" alt="Dried red and fresh green Sichuan peppercorns on a slate board" /><span>Ingredients &amp; Spices →</span></Link>
       </div>
     </section>
 
