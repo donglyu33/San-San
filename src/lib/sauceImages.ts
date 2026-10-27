@@ -1,4 +1,9 @@
+import { PRODUCTS, canonicalProductName } from "./productNames";
+
 const sauceImages: Record<string, string> = {
+  "Soul Chili Oil": "/sauces/chongqing-chili-oil.webp",
+  "Smoky Green Chili": "/sauces/fire-roasted-pepper.webp",
+  "Slow-Simmered Beef Chili": "/sauces/signature-beef-chili.webp",
   "Hot Pot Base": "/sauces/hot-pot-base.webp",
   "Fire-Roasted Pepper Sauce": "/sauces/fire-roasted-pepper.webp",
   "Braise & Stew Sauce": "/sauces/braise-stew.webp",
@@ -13,7 +18,7 @@ const sauceImages: Record<string, string> = {
 };
 
 export function imageForSauce(name: string, customImageUrl: string | null) {
-  return sauceImages[name] || customImageUrl || null;
+  return sauceImages[canonicalProductName(name)] || sauceImages[name] || customImageUrl || null;
 }
 
 // Keep customer-facing copy in sync with the approved garlic chili recipe until the admin record is renamed.
@@ -24,5 +29,8 @@ export function displaySauce(name: string, description: string) {
       description: "Minced garlic and sliced red chilies in savory oil. A flavorful topping for grilled seafood, dumplings, and noodles.",
     };
   }
-  return { name, description };
+  const canonical = canonicalProductName(name);
+  if (canonical === PRODUCTS.beef.name) return { name: canonical, description: PRODUCTS.beef.description };
+  if (canonical === PRODUCTS.green.name) return { name: canonical, description: PRODUCTS.green.description };
+  return { name: canonical, description };
 }

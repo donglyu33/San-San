@@ -1,11 +1,13 @@
 import Link from "next/link";
+import { PRODUCTS } from "@/lib/productNames";
 import { RecipeCarousel } from "@/components/RecipeCarousel";
 import { HOMEPAGE_SERVING_IDEAS } from "@/lib/servingIdeas";
 
-const sauces = [
-  { name: "Soul Chili Oil", copy: "Fragrant, bold, and deeply satisfying.", image: "/editorial/soul-jar-v2.webp" },
-  { name: "Smoky Green Chili Oil", copy: "Roasted green chilies with garlic and green Sichuan peppercorns.", image: "/editorial/green-jar-v2.webp" },
-  { name: "Savory Beef Chili", copy: "Rich, savory, and full of texture.", image: "/editorial/beef-jar-v2.webp" },
+const sauces: { name: string; copy: string; image: string | null }[] = [
+  { name: PRODUCTS.oil.name, copy: "Fragrant, bold, and deeply satisfying.", image: "/editorial/soul-jar-v2.webp" },
+  { name: PRODUCTS.green.name, copy: PRODUCTS.green.shortDescription, image: "/editorial/green-jar-v2.webp" },
+  { name: PRODUCTS.beef.name, copy: PRODUCTS.beef.description, image: "/editorial/beef-jar-v2.webp" },
+  { name: PRODUCTS.flakes.name, copy: "", image: null },
 ];
 
 export default function HomePage() {
@@ -25,7 +27,7 @@ export default function HomePage() {
 
     <section className="reference-container signature-section">
       <div className="section-heading"><div><p className="eyebrow">03 / Our Signature Sauces</p><h2>A Little Jar.<br />A Lot of Possibilities.</h2></div><div><p>Distinct flavors, real ingredients, and the taste<br className="hidden lg:block" /> of Chongqing in every jar.</p><Link className="text-link" href="/shop">Shop All →</Link></div></div>
-      <div className="signature-grid">{sauces.map(sauce => <Link className="sauce-card" href="/shop" key={sauce.name}><div className="sauce-photo"><img loading="lazy" decoding="async" src={sauce.image} alt={`${sauce.name} packaging concept`} /></div><h3>{sauce.name}</h3><p>{sauce.copy}</p><span className="text-link">View →</span></Link>)}</div>
+      <div className="signature-grid">{sauces.map(sauce => <Link className="sauce-card" href="/shop" key={sauce.name}>{sauce.image ? <div className="sauce-photo"><img loading="lazy" decoding="async" src={sauce.image} alt={`${sauce.name} packaging concept`} /></div> : <div className="sauce-photo flex items-center justify-center bg-[#eee5d9]"><span className="font-display text-2xl text-[#65594e]">Photography coming soon</span></div>}<h3>{sauce.name}</h3><p>{sauce.copy}</p><span className="text-link">View →</span></Link>)}</div>
       <p className="concept-note">Packaging shown is a design concept.</p>
     </section>
 

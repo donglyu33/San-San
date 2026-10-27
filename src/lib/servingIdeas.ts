@@ -3,13 +3,13 @@ export const HOMEPAGE_SERVING_IDEAS = [
     id: "fish",
     name: "Fish",
     image: "/serving/green-pepper-fish.png",
-    description: "Spoon Smoky Green Chili Oil over cooked fish for a bright, savory finish.",
+    description: "Spoon Smoky Green Chili over cooked fish for a bright, savory finish.",
   },
   {
     id: "beef",
     name: "Beef",
     image: "/serving/green-pepper-beef.png",
-    description: "Finish sliced beef with Smoky Green Chili Oil for roasted chili flavor and a little extra richness.",
+    description: "Finish sliced beef with Smoky Green Chili for roasted chili flavor and a little extra richness.",
   },
   {
     id: "eggs-toast",
@@ -37,6 +37,6 @@ export const SERVING_IDEAS = [
     id: "rice",
     name: "Rice",
     image: null,
-    description: "Add a little Savory Beef Chili to a warm bowl of rice and let the sauce take the lead.",
+    description: "Add a little Slow-Simmered Beef Chili to a warm bowl of rice and let the sauce take the lead.",
   },
 ] as const;

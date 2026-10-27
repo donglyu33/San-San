@@ -28,7 +28,7 @@ export default async function ShopPage() {
       <section id="ingredients-spices" aria-labelledby="spices-heading" className="mx-auto max-w-7xl scroll-mt-8 border-t border-brand-light px-6 py-14 sm:px-8">
         <h2 id="spices-heading" className="mb-8 font-display text-3xl sm:text-4xl">Ingredients &amp; Spices</h2>
         <div className="grid gap-8 sm:grid-cols-2">
-          {spices.map(item => <MenuItemCard key={item.id} id={item.id} name={item.name} description={item.description} priceCents={item.priceCents} imageUrl={item.imageUrl} imageFit="contain" />)}
+          {spices.map(item => <MenuItemCard key={item.id} id={item.id} {...displaySauce(item.name, item.description)} priceCents={item.priceCents} imageUrl={item.imageUrl} imageFit="contain" />)}
         </div>
       </section>
     </main>
