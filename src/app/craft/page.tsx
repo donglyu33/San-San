@@ -1,25 +1,34 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "The Art of Chili | Our Craft | San San",
+  title: "Chili, Considered. | Our Craft | San San",
   description: "Explore the ingredients, traditions, and thoughtful techniques behind San San's Chongqing-inspired chili flavors.",
 };
 
-const notes = [
+const chapters = [
   {
     number: "01",
-    title: "More than heat",
-    description: "Chili can be fragrant, smoky, earthy, bright, or deeply savory. We pay attention to those differences, not simply how hot something tastes.",
+    title: "Every Chili Has a Character",
+    subtitle: "An ingredient is never just an ingredient.",
+    description: "Some chilies bring a warm, rounded fragrance. Others taste bright, smoky, or deeply savory. We look beyond a single heat level to understand the aroma, texture, and personality each one brings to food.",
+    image: "/editorial/peppercorns-approved.jpg",
+    alt: "Sichuan peppercorns selected for their distinctive fragrance",
   },
   {
     number: "02",
-    title: "Ingredients with character",
-    description: "From chilies to Sichuan peppercorns and aromatics, every ingredient brings its own fragrance, texture, and personality to the table.",
+    title: "The Details Make the Difference",
+    subtitle: "Flavor is shaped by the way we cook.",
+    description: "Roasting green chilies changes their character. Infusing aromatics into oil builds fragrance. Balancing ingredients gives each flavor room to shine. These are the thoughtful choices we keep learning from and refining.",
+    image: "/editorial/ingredients-v2.webp",
+    alt: "Chilies, garlic, peppercorns and other ingredients used in cooking",
   },
   {
     number: "03",
-    title: "Technique makes the difference",
-    description: "Roasting, infusing, and balancing ingredients can transform a familiar chili into something wonderfully layered. The small details matter.",
+    title: "Made for Your Table",
+    subtitle: "A little more flavor, every day.",
+    description: "Our inspiration comes from family cooking in Chongqing, where a good sauce could make a simple meal memorable. That spirit is what we hope to share: a spoonful that makes eggs, noodles, vegetables, or a family dinner feel special.",
+    image: "/serving/sauce-noodles.webp",
+    alt: "Noodles served with chili sauce as everyday meal inspiration",
   },
 ];
 
@@ -48,32 +57,41 @@ export default function CraftPage() {
         <p className="text-xs uppercase tracking-[.24em] text-[#a33d2b]">San San / Our Craft</p>
         <div className="mt-8 grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:items-end lg:gap-20">
           <div>
-            <h1 className="font-display text-5xl leading-[1.06] sm:text-7xl">The Art<br />of Chili.</h1>
+            <h1 className="font-display text-5xl leading-[1.06] sm:text-7xl">Chili,<br />Considered.</h1>
             <p className="mt-7 max-w-2xl font-display text-xl leading-relaxed text-[#51483f] sm:text-2xl">
-              A lifelong appreciation for flavor, tradition, and the little details that make food memorable.
+              There’s more to chili than heat.
             </p>
           </div>
           <div className="border-t border-[#b8a89a] pt-6">
             <p className="max-w-lg text-base leading-8 text-[#65594e]">
-              Rooted in the flavors of Chongqing, we believe chili is about so much more than heat. We are always exploring how ingredients, aroma, texture, and technique come together in a great spoonful.
+              Every chili has its own character. Rooted in Chongqing’s rich food traditions, we explore how aroma, texture, thoughtful ingredients, and careful techniques come together. Because great chili isn’t simply about turning up the heat. It’s about bringing out the flavor.
             </p>
           </div>
         </div>
       </section>
 
       <section className="border-y border-[#ddd1c3] bg-[#eee5d9]">
-        <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8 sm:py-24">
-          <p className="text-xs uppercase tracking-[.24em] text-[#a33d2b]">What we pay attention to</p>
+        <div className="mx-auto max-w-7xl px-6 pb-5 pt-16 sm:px-8 sm:pt-24">
+          <p className="text-xs uppercase tracking-[.24em] text-[#a33d2b]">Three chapters / Our approach</p>
           <h2 className="mt-4 max-w-3xl font-display text-4xl leading-tight sm:text-5xl">Good flavor begins with curiosity.</h2>
-          <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
-            {notes.map((note) => (
-              <article key={note.number} className="border-t border-[#b8a89a] pt-5">
-                <p className="text-xs tracking-[.2em] text-[#a33d2b]">{note.number}</p>
-                <h3 className="mt-5 font-display text-3xl">{note.title}</h3>
-                <p className="mt-4 leading-7 text-[#65594e]">{note.description}</p>
-              </article>
-            ))}
-          </div>
+          <p className="mt-5 max-w-2xl leading-8 text-[#65594e]">We grew up with these flavors. We still find something new to appreciate in every ingredient and every meal.</p>
+        </div>
+        <div className="mx-auto max-w-7xl px-6 pb-16 sm:px-8 sm:pb-24">
+          {chapters.map((chapter, index) => (
+            <article key={chapter.number} className="grid gap-8 border-t border-[#cbbbab] py-10 sm:py-14 lg:grid-cols-2 lg:items-center lg:gap-16">
+              <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+                <div className="aspect-[4/3] overflow-hidden bg-[#d9ccbc]">
+                  <img src={chapter.image} alt={chapter.alt} loading="lazy" decoding="async" className="h-full w-full object-cover" />
+                </div>
+              </div>
+              <div className={index % 2 === 1 ? "lg:order-1" : ""}>
+                <p className="text-xs uppercase tracking-[.22em] text-[#a33d2b]">Chapter {chapter.number}</p>
+                <h3 className="mt-5 max-w-xl font-display text-4xl leading-tight sm:text-5xl">{chapter.title}</h3>
+                <p className="mt-6 font-display text-xl italic text-[#68574b]">{chapter.subtitle}</p>
+                <p className="mt-5 max-w-lg text-base leading-8 text-[#65594e]">{chapter.description}</p>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -81,7 +99,7 @@ export default function CraftPage() {
         <p className="text-xs uppercase tracking-[.24em] text-[#a33d2b]">Beyond the Heat / The San San Journal</p>
         <div className="mt-5 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <h2 className="font-display text-4xl sm:text-5xl">There is always more to discover.</h2>
-          <p className="max-w-sm leading-7 text-[#65594e]">Notes on chili, ingredients, and the craft of building flavor. Stories and guides are in development.</p>
+          <p className="max-w-sm leading-7 text-[#65594e]">Our ongoing exploration of chili, ingredients, and the craft of building flavor. Longer stories and guides are in development.</p>
         </div>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {journal.map((entry) => (
