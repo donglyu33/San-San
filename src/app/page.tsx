@@ -7,7 +7,6 @@ const sauces: { name: string; copy: string; image: string | null }[] = [
   { name: PRODUCTS.oil.name, copy: "Fragrant, bold, and deeply satisfying.", image: "/editorial/soul-jar-approved-v3.webp" },
   { name: PRODUCTS.green.name, copy: PRODUCTS.green.shortDescription, image: "/editorial/green-jar-approved-v3.webp" },
   { name: PRODUCTS.beef.name, copy: PRODUCTS.beef.description, image: "/editorial/beef-jar-approved-v3.webp" },
-  { name: PRODUCTS.flakes.name, copy: "", image: null },
 ];
 
 export default function HomePage() {

@@ -3,13 +3,17 @@ import { prisma } from "@/lib/prisma";
 import { MenuItemCard } from "@/components/MenuItemCard";
 import { displaySauce, imageForSauce } from "@/lib/sauceImages";
 import { isSpiceCategory } from "@/lib/peppercorns";
+import { PRODUCTS, canonicalProductName } from "@/lib/productNames";
 
 export const dynamic = "force-dynamic";
 
 export default async function ShopPage() {
   const items = await prisma.menuItem.findMany({ where: { available: true }, orderBy: { sortOrder: "asc" } });
-  const sauces = items.filter(item => !isSpiceCategory(item.category));
-  const spices = items.filter(item => isSpiceCategory(item.category));
+  const isSpice = (item: (typeof items)[number]) =>
+    isSpiceCategory(item.category) || canonicalProductName(item.name) === PRODUCTS.flakes.name;
+  const sauces = items.filter(item => !isSpice(item));
+  const spices = items.filter(isSpice);
+  const hasFlakes = spices.some(item => canonicalProductName(item.name) === PRODUCTS.flakes.name);
   return (
     <main className="min-h-screen bg-[#f6f0e6]">
       <section className="border-b border-black/10 px-6 py-16 text-center sm:px-8 sm:py-20">
@@ -29,6 +33,12 @@ export default async function ShopPage() {
         <h2 id="spices-heading" className="mb-8 font-display text-3xl sm:text-4xl">Ingredients &amp; Spices</h2>
         <div className="grid gap-8 sm:grid-cols-2">
           {spices.map(item => <MenuItemCard key={item.id} id={item.id} {...displaySauce(item.name, item.description)} priceCents={item.priceCents} imageUrl={item.imageUrl} imageFit="contain" />)}
+          {!hasFlakes && (
+            <article className="border border-brand-light bg-background p-6">
+              <h3 className="font-display text-lg text-foreground">{PRODUCTS.flakes.name}</h3>
+              <p className="mt-2 text-sm text-foreground/60">Product details coming soon.</p>
+            </article>
+          )}
         </div>
       </section>
     </main>
