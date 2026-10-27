@@ -5,7 +5,8 @@ export const PEPPERCORNS = [
     name: "Green Sichuan Peppercorns",
     description: "Bright citrus aroma with a lively, tingling finish.",
     imageUrl: "/spices/green-sichuan-peppercorns.webp",
-    priceCents: null,
+    priceCents: 800,
+    netWeight: "2 oz",
   },
   {
     id: "san-san-red-sichuan-peppercorns",
@@ -13,7 +14,8 @@ export const PEPPERCORNS = [
     name: "Red Sichuan Peppercorns",
     description: "Warm floral aroma with a lingering, tingling finish.",
     imageUrl: "/spices/red-sichuan-peppercorns.webp",
-    priceCents: null,
+    priceCents: 800,
+    netWeight: "2 oz",
   },
 ] as const;
 

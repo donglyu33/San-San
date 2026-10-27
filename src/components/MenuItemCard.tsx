@@ -8,7 +8,7 @@ type Props = {
   id: string;
   name: string;
   description: string;
-  priceCents: number | null;
+  priceCents: number;
   imageUrl?: string | null;
   imageFit?: "cover" | "contain";
 };
@@ -18,7 +18,6 @@ export function MenuItemCard({ id, name, description, priceCents, imageUrl, imag
   const [justAdded, setJustAdded] = useState(false);
 
   function handleAdd() {
-    if (priceCents === null) return;
     addItem({ menuItemId: id, name, priceCents });
     setJustAdded(true);
     setTimeout(() => setJustAdded(false), 1200);
@@ -34,16 +33,15 @@ export function MenuItemCard({ id, name, description, priceCents, imageUrl, imag
         <div>
           <div className="flex items-start justify-between gap-3">
             <h3 className="font-display text-lg text-foreground">{name}</h3>
-            {priceCents !== null && <span className="whitespace-nowrap text-accent">{formatCents(priceCents)}</span>}
+            <span className="whitespace-nowrap text-accent">{formatCents(priceCents)}</span>
           </div>
           <p className="mt-2 text-sm text-foreground/60">{description}</p>
         </div>
         <button
           onClick={handleAdd}
-          disabled={priceCents === null}
-          className="mt-5 min-h-11 self-start border-b border-foreground/30 pb-0.5 text-xs font-medium uppercase tracking-widest text-foreground transition group-hover:border-foreground disabled:cursor-default disabled:opacity-60"
+          className="mt-5 min-h-11 self-start border-b border-foreground/30 pb-0.5 text-xs font-medium uppercase tracking-widest text-foreground transition group-hover:border-foreground"
         >
-          {priceCents === null ? "Coming soon" : justAdded ? "Added" : "Add to cart"}
+          {justAdded ? "Added" : "Add to cart"}
         </button>
       </div>
     </div>

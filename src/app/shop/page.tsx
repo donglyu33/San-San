@@ -2,7 +2,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { MenuItemCard } from "@/components/MenuItemCard";
 import { displaySauce, imageForSauce } from "@/lib/sauceImages";
-import { PEPPERCORNS, isSpiceCategory } from "@/lib/peppercorns";
+import { isSpiceCategory } from "@/lib/peppercorns";
 
 export const dynamic = "force-dynamic";
 
@@ -10,7 +10,6 @@ export default async function ShopPage() {
   const items = await prisma.menuItem.findMany({ where: { available: true }, orderBy: { sortOrder: "asc" } });
   const sauces = items.filter(item => !isSpiceCategory(item.category));
   const spices = items.filter(item => isSpiceCategory(item.category));
-  const upcoming = PEPPERCORNS.filter(product => !items.some(item => item.id === product.id));
   return (
     <main className="min-h-screen bg-[#f6f0e6]">
       <section className="border-b border-black/10 px-6 py-16 text-center sm:px-8 sm:py-20">
@@ -30,7 +29,6 @@ export default async function ShopPage() {
         <h2 id="spices-heading" className="mb-8 font-display text-3xl sm:text-4xl">Ingredients &amp; Spices</h2>
         <div className="grid gap-8 sm:grid-cols-2">
           {spices.map(item => <MenuItemCard key={item.id} id={item.id} name={item.name} description={item.description} priceCents={item.priceCents} imageUrl={item.imageUrl} imageFit="contain" />)}
-          {upcoming.map(product => <MenuItemCard key={product.id} id={product.id} name={product.name} description={product.description} priceCents={null} imageUrl={product.imageUrl} imageFit="contain" />)}
         </div>
       </section>
     </main>
