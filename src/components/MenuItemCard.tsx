@@ -16,6 +16,11 @@ type Props = {
 export function MenuItemCard({ id, name, description, priceCents, imageUrl, imageFit = "cover" }: Props) {
   const { addItem } = useCart();
   const [justAdded, setJustAdded] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(0);
+  const images = imageUrl
+    ? [imageUrl, ...(name === "Hot Pot Base" ? ["/sauces/hot-pot-base-serving.webp"] : [])]
+    : [];
+
 
   function handleAdd() {
     addItem({ menuItemId: id, name, priceCents });
@@ -25,9 +30,21 @@ export function MenuItemCard({ id, name, description, priceCents, imageUrl, imag
 
   return (
     <div className="group flex flex-col justify-between overflow-hidden border border-brand-light bg-background transition hover:border-foreground/30">
-      {imageUrl && (
-        // eslint-disable-next-line @next/next/no-img-element -- arbitrary admin-supplied URLs, not a fixed set of domains
-        <img src={imageUrl} alt={name} className={`w-full ${imageFit === "contain" ? "aspect-square object-contain" : "aspect-[4/3] object-cover"}`} loading="lazy" />
+      {images.length > 0 && (
+        <div>
+          {/* eslint-disable-next-line @next/next/no-img-element -- arbitrary admin-supplied URLs */}
+          <img src={images[selectedImage] || images[0]} alt={selectedImage === 0 ? name : `${name} serving suggestion`} className={`w-full ${imageFit === "contain" ? "aspect-square object-contain" : "aspect-[4/3] object-cover"}`} loading="lazy" />
+          {images.length > 1 && (
+            <div className="flex gap-2 px-4 pt-3" role="group" aria-label={`${name} product photos`}>
+              {images.map((src, index) => (
+                <button key={src} type="button" onClick={() => setSelectedImage(index)} aria-label={`View ${name} photo ${index + 1}`} aria-pressed={selectedImage === index} className={`min-h-11 w-16 overflow-hidden border-2 focus-visible:outline-2 focus-visible:outline-offset-2 ${selectedImage === index ? "border-foreground" : "border-transparent"}`}>
+                  {/* eslint-disable-next-line @next/next/no-img-element -- product photo thumbnail */}
+                  <img src={src} alt="" className="aspect-[4/3] w-full object-cover" loading="lazy" />
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
       )}
       <div className="flex flex-1 flex-col justify-between p-6">
         <div>
