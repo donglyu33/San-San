@@ -7,7 +7,7 @@ export default function StoryPage() {
       <div className="mx-auto max-w-7xl px-6 py-12 sm:px-12 sm:py-16 lg:px-16 lg:py-20">
         <header className="mb-8 sm:mb-12">
           <p className="text-[10px] font-semibold uppercase tracking-[.28em] text-brand">Our story</p>
-          <h1 className="mt-4 max-w-3xl font-display text-4xl leading-[1.05] sm:text-6xl lg:text-7xl">
+          <h1 className="mt-4 max-w-5xl text-balance font-display text-4xl leading-[1.05] sm:text-6xl lg:text-7xl">
             It Started With Two Bowls.
           </h1>
         </header>
